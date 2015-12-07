@@ -29,8 +29,8 @@ gulp.task('css', function() {
             browsers: ['> 1%', 'IE 7'],
             cascade: false
         }))
-    .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(rename("bundle.min.css"))
+    //.pipe(minifyCss({compatibility: 'ie8'}))
+    .pipe(rename("bundle.css"))
     .pipe(gulp.dest('app/css/'))
     .pipe(connect.reload())
     .pipe(notify("CSS Done! :)"));
@@ -48,15 +48,16 @@ gulp.task('css', function() {
 // JavaScript
 gulp.task('js', function() {
   return gulp.src('js/script.js')
-    .pipe(uglify())
-    .pipe(rename("script.min.js"))
+    //.pipe(uglify())
+    //.pipe(rename("script.min.js"))
     .pipe(gulp.dest('app/js/'))
     .pipe(notify("JS Done! :)"));
 });
 // html
 gulp.task('html', function(){
   gulp.src('app/index.html')
-  .pipe(connect.reload());
+  .pipe(connect.reload())
+  .pipe(notify("HTML Done! :) Nastya knows it!"));
 });
 
 // watch
